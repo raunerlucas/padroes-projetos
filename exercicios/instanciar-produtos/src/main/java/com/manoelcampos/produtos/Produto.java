@@ -94,6 +94,10 @@ public class Produto {
             this.urlFoto = urlFoto;
             return this;
         }
+
+        public Produto build() {
+            return new Produto(this);
+        }
     }
 
     @Override
