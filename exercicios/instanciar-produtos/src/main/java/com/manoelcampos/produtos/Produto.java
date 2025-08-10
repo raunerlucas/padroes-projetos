@@ -19,7 +19,11 @@ public class Produto {
     private final String categoria;
     private final String urlFoto;
 
-    public Produto(Builder builder) {
+    /**
+     * Construtor privado para o uso do Builder.
+     * @param builder O construtor Builder usado para criar o Produto
+     */
+    private Produto(Builder builder) {
         this.id = builder.id;
         this.codigoEan = builder.codigoEan;
         this.descricao = builder.descricao;
@@ -33,6 +37,12 @@ public class Produto {
         this.urlFoto = builder.urlFoto;
     }
 
+    /**
+     * Classe Builder para facilitar a criação de instâncias de Produto.
+     * Permite a construção de um Produto de forma fluente e segura, garantindo
+     * que todos os campos obrigatórios sejam preenchidos e que as regras de
+     * negócio sejam respeitadas.
+    * */
     public static class Builder {
         private final String descricao;
         private final String marca;
@@ -46,6 +56,14 @@ public class Produto {
         private int estoque = 0; // Valor padrão de estoque
         private String urlFoto;
 
+        /**
+         * Construtor do Builder.
+         * @param descricao Descrição do produto (obrigatório)
+         * @param marca Marca do produto (obrigatório)
+         * @param id ID do produto (obrigatório, deve ser maior que zero)
+         * @param preco Preço do produto (obrigatório, não pode ser negativo)
+         * @param categoria Categoria do produto (obrigatório)
+         */
         public Builder(String descricao, String marca, long id, double preco, String categoria) {
             if (descricao == null || descricao.isEmpty() || marca == null || marca.isEmpty()) {
                 throw new IllegalArgumentException("Descrição e marca são obrigatórios");
