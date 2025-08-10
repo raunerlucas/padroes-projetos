@@ -34,7 +34,7 @@ public class Paciente {
     }
 
     public final void setNome(String nome) {
-        if(nome.isBlank()){
+        if (nome.isBlank()) {
             throw new IllegalArgumentException("Nome é obrigatório.");
         }
 
@@ -42,12 +42,12 @@ public class Paciente {
     }
 
     public final void setSexo(char sexo) {
-        if(sexo == '\0'){
+        if (sexo == '\0') {
             throw new IllegalArgumentException("Sexo é obrigatório.");
         }
 
         sexo = Character.toUpperCase(sexo);
-        if(sexo != 'M' && sexo != 'F'){
+        if (sexo != 'M' && sexo != 'F') {
             throw new IllegalArgumentException("Sexo inválido. Informe M ou F.");
         }
 
@@ -55,7 +55,7 @@ public class Paciente {
     }
 
     public final void setCpf(String cpf) {
-        if(cpf.isBlank()){
+        if (cpf.isBlank()) {
             throw new IllegalArgumentException("CPF é obrigatório.");
         }
 
@@ -63,7 +63,7 @@ public class Paciente {
     }
 
     public final void setCidade(String cidade) {
-        if(cidade.isBlank()){
+        if (cidade.isBlank()) {
             throw new IllegalArgumentException("Cidade é obrigatória.");
         }
 
@@ -71,7 +71,7 @@ public class Paciente {
     }
 
     public final void setUf(String uf) {
-        if(uf.isBlank()){
+        if (uf.isBlank()) {
             throw new IllegalArgumentException("UF é obrigatória.");
         }
 
@@ -125,7 +125,9 @@ public class Paciente {
         return uf;
     }
 
-    /** Peso para cálculo do IMC. */
+    /**
+     * Peso para cálculo do IMC.
+     */
     public double getPeso() {
         return peso;
     }
@@ -134,7 +136,9 @@ public class Paciente {
         this.peso = peso;
     }
 
-    /** Altura para cálculo do IMC. */
+    /**
+     * Altura para cálculo do IMC.
+     */
     public double getAltura() {
         return altura;
     }
