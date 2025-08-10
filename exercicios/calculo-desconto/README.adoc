@@ -42,3 +42,50 @@ A implementação sem padrões de projeto traria vários problemas, como:
 4. Implemente o projeto e envie o link para repositório no GitHub, onde o README deve conter as respostas.
 
 Resposta em -> https://github.com/raunerlucas/padroes-projetos/tree/calc-atv/exercicios/calculo-desconto
+
+5. Proposta de solução feita por Rauner Lucas.
+
+[source,mermaid]
+----
+classDiagram
+    class Cliente {
+        -Long id
+        -String nome
+        -LocalDate dataNascimento
+        +Cliente(Long id, String nome, LocalDate dataNascimento)
+    }
+
+    class Venda {
+        -Cliente cliente
+        -LocalDate data
+        -double valorTotal
+        -EstrategiaDesconto estrategia
+        +Venda(Cliente cliente, LocalDate data, double valorTotal)
+        +setEstrategiaDesconto(EstrategiaDesconto estrategia)
+        +calcularDesconto() double
+        +getValorTotal() double
+    }
+
+    interface EstrategiaDesconto {
+        <<interface>>
+        +calcular(Venda venda) double
+    }
+
+    class EstrategiasDesconto {
+        <<static>>
+        +descontoFixo(double percentual) EstrategiaDesconto
+        +descontoProgressivo() EstrategiaDesconto
+        +descontoAniversario() EstrategiaDesconto
+    }
+
+    class Principal {
+        +main(String[] args) void
+    }
+
+    Cliente --o Venda : possui
+    Venda --> EstrategiaDesconto : usa
+    EstrategiaDesconto <.. EstrategiasDesconto : cria
+    Principal --> Venda : cria
+    Principal --> Cliente : cria
+    Principal --> EstrategiasDesconto : utiliza
+----
