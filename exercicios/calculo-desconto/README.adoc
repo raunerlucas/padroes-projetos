@@ -23,8 +23,23 @@ O programa deve apenas permitir que seja mudado o algoritmo de cálculo do desco
 
 == Responda
 
-1. Qual padrão de projeto pode ser utilizado no desenvolvimento de uma solução? 
-2. Como poderíamos implementar estes tipos de desconto sem utilizar Padrões de Projetos? 
+1. Qual padrão de projeto pode ser utilizado no desenvolvimento de uma solução?
+
+    O padrão de projeto que pode ser utilizado para implementar essa solução é o *Strategy*. Este padrão permite definir uma família de algoritmos, encapsular cada um deles e torná-los intercambiáveis. O Strategy permite que o algoritmo de cálculo do desconto seja selecionado em tempo de execução, facilitando a adição de novos tipos de desconto sem modificar o código existente.
+
+2. Como poderíamos implementar estes tipos de desconto sem utilizar Padrões de Projetos?
+
+    Poderíamos implementar os tipos de desconto utilizando condicionais (como `if` ou `switch`) para verificar o tipo de desconto selecionado pelo usuário. Cada tipo de desconto teria sua própria lógica implementada diretamente no código, o que tornaria o sistema menos flexível e mais difícil de manter, pois qualquer alteração ou adição de novos tipos de desconto exigiria modificações no código existente.
+
 3. Quais os problemas que tal implementação traria?
+A implementação sem padrões de projeto traria vários problemas, como:
+
+    - **Dificuldade de Manutenção**: Com o aumento do número de tipos de desconto, o código se tornaria complexo e difícil de entender, tornando a manutenção mais complicada.
+    - **Baixa Flexibilidade**: Adicionar novos tipos de desconto exigiria modificações no código existente, o que poderia introduzir bugs e afetar outras partes do sistema.
+    - **Código Repetitivo**: Poderia haver duplicação de código para diferentes tipos de desconto, violando o princípio DRY (Don't Repeat Yourself).
+    - **Testabilidade Reduzida**: Testar cada tipo de desconto individualmente seria mais difícil, pois todos estariam acoplados em uma única estrutura condicional.
+
 4. Implemente o projeto e envie o link para repositório no GitHub, onde o README deve conter as respostas.
+
+Resposta em : https://xxx[github.com/usuario/repositorio]
 
