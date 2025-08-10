@@ -19,7 +19,7 @@ public class Produto {
     private final String categoria;
     private final String urlFoto;
 
-    public Produto(ProdutoBuilder builder) {
+    public Produto(Builder builder) {
         this.id = builder.id;
         this.codigoEan = builder.codigoEan;
         this.descricao = builder.descricao;
@@ -33,7 +33,7 @@ public class Produto {
         this.urlFoto = builder.urlFoto;
     }
 
-    public static class ProdutoBuilder {
+    public static class Builder {
         private final String descricao;
         private final String marca;
         private final long id;
@@ -46,7 +46,7 @@ public class Produto {
         private int estoque = 0; // Valor padrão de estoque
         private String urlFoto;
 
-        public ProdutoBuilder(String descricao, String marca, long id, double preco, String categoria) {
+        public Builder(String descricao, String marca, long id, double preco, String categoria) {
             if (descricao == null || descricao.isEmpty() || marca == null || marca.isEmpty()) {
                 throw new IllegalArgumentException("Descrição e marca são obrigatórios");
             }
@@ -67,17 +67,17 @@ public class Produto {
             this.categoria = categoria;
         }
 
-        public ProdutoBuilder Modelo(String modelo) {
+        public Builder Modelo(String modelo) {
             this.modelo = modelo;
             return this;
         }
 
-        public ProdutoBuilder CodigoEan(String codigoEan) {
+        public Builder CodigoEan(String codigoEan) {
             this.codigoEan = codigoEan;
             return this;
         }
 
-        public ProdutoBuilder DataUltimaAtualizacao(LocalDate dataUltimaAtualizacao) {
+        public Builder DataUltimaAtualizacao(LocalDate dataUltimaAtualizacao) {
             if (dataUltimaAtualizacao != null && dataUltimaAtualizacao.isBefore(dataCadastro)) {
                 throw new IllegalArgumentException("Data de última atualização não pode ser anterior à data de cadastro");
             }
@@ -85,12 +85,12 @@ public class Produto {
             return this;
         }
 
-        public ProdutoBuilder Estoque(int estoque) {
+        public Builder Estoque(int estoque) {
             this.estoque = estoque;
             return this;
         }
 
-        public ProdutoBuilder UrlFoto(String urlFoto) {
+        public Builder UrlFoto(String urlFoto) {
             this.urlFoto = urlFoto;
             return this;
         }
