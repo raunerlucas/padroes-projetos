@@ -38,8 +38,12 @@ A classe possui os seguintes requisitos:
 
 == Responda
 
-1. Que padrão de projeto pode ser utilizado para tornar mais fácil e claro o processo de instanciação de tal classe, uma vez que há dependências entre diferentes atributos, atributos obrigatórios e outros não? Implemente tal padrão para esta classe. 
+1. Que padrão de projeto pode ser utilizado para tornar mais fácil e claro o processo de instanciação de tal classe, uma vez que há dependências entre diferentes atributos, atributos obrigatórios e outros não? Implemente tal padrão para esta classe.
+
+    O padrão de projeto *Builder* é adequado para essa situação, pois permite a construção de objetos complexos passo a passo, facilitando a definição de atributos obrigatórios e a validação de regras de negócio.
 
 Implemente o projeto e envie link para repositório no GitHub, onde o README deve conter as respostas.
+
+https://github.com/raunerlucas/padroes-projetos/tree/inst-prod-atv/exercicios/instanciar-produtos
 
 
