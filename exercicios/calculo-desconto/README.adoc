@@ -48,44 +48,39 @@ Resposta em -> https://github.com/raunerlucas/padroes-projetos/tree/calc-atv/exe
 [source,mermaid]
 ----
 classDiagram
-    class Cliente {
-        -Long id
-        -String nome
-        -LocalDate dataNascimento
-        +Cliente(Long id, String nome, LocalDate dataNascimento)
+    class CalculadoraDesconto {
+        <<Interface Funcional>>
+        +calcularDesconto(Venda) double
     }
 
     class Venda {
-        -Cliente cliente
-        -LocalDate data
-        -double valorTotal
-        -EstrategiaDesconto estrategia
-        +Venda(Cliente cliente, LocalDate data, double valorTotal)
-        +setEstrategiaDesconto(EstrategiaDesconto estrategia)
+        -id: long
+        -cliente: Cliente
+        -data: LocalDate
+        -valorTotal: double
+        -estrategiaDesconto: CalculadoraDesconto
+        +Venda()
+        +Venda(Cliente, LocalDate, double)
         +calcularDesconto() double
-        +getValorTotal() double
     }
 
-    interface EstrategiaDesconto {
-        <<interface>>
-        +calcular(Venda venda) double
+    class Cliente {
+        -id: long
+        -nome: String
+        -dataNascimento: LocalDate
+        +Cliente()
+        +Cliente(long, String, LocalDate)
+        +getters/setters
     }
 
     class EstrategiasDesconto {
-        <<static>>
-        +descontoFixo(double percentual) EstrategiaDesconto
-        +descontoProgressivo() EstrategiaDesconto
-        +descontoAniversario() EstrategiaDesconto
+        +descontoFixo(double) CalculadoraDesconto
+        +descontoProgressivo() CalculadoraDesconto
+        +descontoAniversario() CalculadoraDesconto
     }
 
-    class Principal {
-        +main(String[] args) void
-    }
 
-    Cliente --o Venda : possui
-    Venda --> EstrategiaDesconto : usa
-    EstrategiaDesconto <.. EstrategiasDesconto : cria
-    Principal --> Venda : cria
-    Principal --> Cliente : cria
-    Principal --> EstrategiasDesconto : utiliza
+    Venda --> Cliente : contém
+    EstrategiasDesconto ..> CalculadoraDesconto : implementa
+    Venda --> CalculadoraDesconto : usa
 ----
