@@ -29,4 +29,6 @@ Faça as alterações necessárias no projeto atual e implemente um padrão para
 
 1. Qual padrão de projeto pode ser utilizado para resolver este problema? Implemente a solução (não precisa enviar mensagens de fato, apenas simular com prints).
 
+    Resposta: O padrão de projeto que pode ser utilizado é o **Factory Method**. Ele permite encapsular a lógica de criação de objetos, facilitando a troca ou adição de novas classes de envio de mensagens sem modificar o código existente. A implementação pode ser feita criando uma interface `MessageSender` e classes concretas como `EmailSender`, `SmsSender`, etc. Um `MessageSenderFactory` pode ser responsável por instanciar a classe correta com base em um parâmetro.
+
 Implemente o projeto e envie link para repositório no GitHub, onde o README deve conter as respostas.
