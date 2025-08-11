@@ -1,11 +1,13 @@
 package com.manoelcampos.impostorenda;
 
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author Manoel Campos da Silva Filho
  */
 @Data
+@SuperBuilder
 public abstract class Pessoa {
     private long id;
     private String nome;

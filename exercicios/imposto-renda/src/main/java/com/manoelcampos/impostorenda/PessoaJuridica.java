@@ -1,11 +1,13 @@
 package com.manoelcampos.impostorenda;
 
 import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @author Rauner Lucas
  */
 @Data
+@SuperBuilder(builderMethodName = "hiddenBuilder")
 public class PessoaJuridica extends Pessoa {
     private double lucro;
     private double valorProdutosAdquiridos;
@@ -14,6 +16,13 @@ public class PessoaJuridica extends Pessoa {
     private static final double LIMITE_COBRANCA_IR = 20000.0;
     private static final double ALIQUOTA_CSLL = 0.09; // 9%
     private static final double ALIQUOTA_ICMS = 0.05; // 5%
+
+    // Builder personalizado para campos obrigatórios
+    public static PessoaJuridicaBuilder builder(String nome, double lucro) {
+        return hiddenBuilder()
+                .nome(nome)
+                .lucro(lucro);
+    }
 
     @Override
     protected double calcularImpostoRenda() {

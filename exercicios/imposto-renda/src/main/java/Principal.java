@@ -1,22 +1,21 @@
-import com.manoelcampos.impostorenda.*;
+import com.manoelcampos.impostorenda.PessoaFisica;
+import com.manoelcampos.impostorenda.PessoaJuridica;
 
 public class Principal {
     public static void main(String[] args) {
-        // Exemplo com Pessoa Física
-        PessoaFisica pf = new PessoaFisica();
-        pf.setNome("João Silva");
-        pf.setSalarioBruto(5000);
-        pf.setNumeroDependentes(2);
-        pf.setGastosSaude(500);
-        pf.setGastosEducacao(300);
+        // Exemplo com Pessoa Física usando Builder
+        PessoaFisica pf = PessoaFisica.builder("João Silva", 5000)
+                .numeroDependentes(2)
+                .gastosSaude(500)
+                .gastosEducacao(300)
+                .build();
 
         System.out.println("Imposto total PF: R$ " + pf.calcularImpostoTotal());
 
-        // Exemplo com Pessoa Jurídica
-        PessoaJuridica pj = new PessoaJuridica();
-        pj.setNome("Empresa XYZ Ltda");
-        pj.setLucro(200000);
-        pj.setValorProdutosAdquiridos(50000);
+        // Exemplo com Pessoa Jurídica usando Builder
+        PessoaJuridica pj = PessoaJuridica.builder("Empresa XYZ Ltda", 200000)
+                .valorProdutosAdquiridos(50000)
+                .build();
 
         System.out.println("Imposto total PJ: R$ " + pj.calcularImpostoTotal());
     }
