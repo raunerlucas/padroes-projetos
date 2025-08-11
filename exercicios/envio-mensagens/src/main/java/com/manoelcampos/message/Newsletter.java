@@ -10,24 +10,18 @@ import java.util.List;
  *
  * @author Manoel Campos da Silva Filho
  */
-public abstract class Newsletter {
+public class Newsletter {
     private final List<Customer> customers;
-    private MessageService messageService;
+    private final MessageService messageService;
 
     /**
      * Instancia uma newsletter para envio de mensagens para uma determinada lista de clientes
      * @param customers lista de clientes para enviar mensagens
      */
-    public Newsletter(final List<Customer> customers){
+    public Newsletter(final List<Customer> customers, MessageService messageService){
         this.customers = customers;
-        this.messageService = createMessageService();
+        this.messageService = messageService;
     }
-
-    /**
-     * Cria uma instância de {@link MessageService} que será utilizada
-     * para enviar as mensagens.
-     * */
-    protected abstract MessageService createMessageService();
 
     /**
      * Envia uma mensagem personalizada para uma lista de clientes.

@@ -8,25 +8,12 @@ import java.util.List;
  * Envia mensagens de email.
  * @author Manoel Campos da Silva Filho
  */
-public class Email extends Newsletter implements MessageService {
-    /**
-     * Instancia uma newsletter para envio de mensagens para uma determinada lista de clientes
-     * @param customers lista de clientes para enviar mensagens
-     */
-    public Email(List<Customer> customers) {
-        super(customers);
-    }
-
+public class EmailService implements MessageService {
     @Override
     public void send(final String destination, final String msg) throws MessageSendException {
         if (destination == null || msg == null) {
             throw new MessageSendException("Email => Destino ou mensagem não podem ser nulos");
         }
         System.out.println("Enviando email para " + destination + ": " + msg);
-    }
-
-    @Override
-    protected MessageService createMessageService() {
-        return this;
     }
 }

@@ -2,8 +2,8 @@ package com.manoelcampos.message;
 
 /**
  * Interface para a implementação
- * de serviços de envio de mensagens, como {@link Sms},
- * {@link Email} e {@link WhatsApp}.
+ * de serviços de envio de mensagens, como {@link SmsService},
+ * {@link EmailService} e {@link WhatsAppService}.
  * @author Manoel Campos da Silva Filho
  */
 public interface MessageService {
