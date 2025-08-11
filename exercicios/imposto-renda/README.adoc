@@ -46,6 +46,8 @@ Resumindo:
 Precisamos de um método que calcule o valor em R$ de todos os impostos pagos por PFs e PJs. 
 Considerando que deve-se garantir que o cálculo inclua o valor do IR, que padrão de projeto pode ser aplicado para isto?
 
-    Resposta: O padrão de projeto que pode ser aplicado é o padrão Template Method. Com ele, você pode definir um método abstrato para o cálculo total de impostos na superclasse, implementando o cálculo do IR nas subclasses de PF e PJ conforme as regras específicas. Isso garante que o cálculo do IR sempre será incluído no processo, mantendo a estrutura organizada e reutilizável.
+    O padrão de projeto que pode ser aplicado é o padrão Template Method. Com ele, você pode definir um método abstrato para o cálculo total de impostos na superclasse, implementando o cálculo do IR nas subclasses de PF e PJ conforme as regras específicas. Isso garante que o cálculo do IR sempre será incluído no processo, mantendo a estrutura organizada e reutilizável.Após a aplicação do padrão, achei interesante colocar mais um padrão, o Builder, para facilitar a construção de objetos PessoaFisica e PessoaJuridica, permitindo que sejam criados de forma mais flexível e legível.
+
+Veja a implementação em:
 
 https://github.com/raunerlucas/padroes-projetos/tree/impost-atv/exercicios/imposto-renda
