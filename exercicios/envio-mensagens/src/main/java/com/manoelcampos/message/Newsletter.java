@@ -10,9 +10,9 @@ import java.util.List;
  *
  * @author Manoel Campos da Silva Filho
  */
-public class Newsletter {
+public abstract class Newsletter {
     private final List<Customer> customers;
-    private WhatsApp whatsapp;
+    private MessageService messageService;
 
     /**
      * Instancia uma newsletter para envio de mensagens para uma determinada lista de clientes
@@ -20,8 +20,14 @@ public class Newsletter {
      */
     public Newsletter(final List<Customer> customers){
         this.customers = customers;
-        this.whatsapp = new WhatsApp();
+        this.messageService = createMessageService();
     }
+
+    /**
+     * Cria uma instância de {@link MessageService} que será utilizada
+     * para enviar as mensagens.
+     * */
+    protected abstract MessageService createMessageService();
 
     /**
      * Envia uma mensagem personalizada para uma lista de clientes.
@@ -33,7 +39,7 @@ public class Newsletter {
      */
     public void send(final String msgTemplate) {
         for (final Customer customer : customers) {
-            whatsapp.send(customer.getPhone(), formatMsg(customer, msgTemplate));
+            messageService.send(customer.getPhone(), formatMsg(customer, msgTemplate));
         }
     }
 
@@ -51,5 +57,9 @@ public class Newsletter {
             .replaceAll("#name", customer.getName())
             .replaceAll("#email", customer.getEmail())
             .replaceAll("#phone", customer.getPhone());
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
     }
 }

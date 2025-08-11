@@ -1,5 +1,8 @@
 package com.manoelcampos;
 
+import com.manoelcampos.message.Email;
+import com.manoelcampos.message.Sms;
+import com.manoelcampos.message.WhatsApp;
 import com.manoelcampos.people.Customer;
 import com.manoelcampos.message.Newsletter;
 
@@ -16,9 +19,16 @@ public class Principal {
             new Customer("Breno",  "(63) 3333-4444", "breno@teste.com"),
             new Customer("Raysa",  "(63) 5555-6666", "raysa@teste.com")
         );
-
-        final Newsletter newsletter = new Newsletter(customers);
         final String msgTemplate = "Aproveite as promoções de natal #name.";
+
+        System.out.println("---------- Whatsapp -----------");
+        Newsletter newsletter = new WhatsApp(customers);
+        newsletter.send(msgTemplate);
+        System.out.println("---------- SMS -----------");
+        newsletter = new Sms(customers);
+        newsletter.send(msgTemplate);
+        System.out.println("---------- EMAIL -----------");
+        newsletter = new Email(customers);
         newsletter.send(msgTemplate);
     }
 }
