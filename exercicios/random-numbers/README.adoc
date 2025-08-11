@@ -44,6 +44,8 @@ Por fim, nestas classes, se for preciso definir uma seed, isto não é feito por
 
 Identifique qual padrão de projeto pode ser aplicado para uniformizar a interface das classes `Random` do pacote `java.util` e das classes que implementam a interface `RealDistribution` da biblioteca Apache Commons Math. O padrão deve então permitir que a forma de utilizar qualquer destas classes seja a mesma.
 
+    Resposta: O padrão de projeto que pode ser aplicado é o Padrão Adapter (ou Wrapper). Este padrão permite que classes com interfaces diferentes possam ser utilizadas de forma uniforme, adaptando a interface de uma classe para que ela se torne compatível com outra.
+
 Altere a aplicação de exemplo nesta pasta (que já inclui a dependência para a biblioteca Apache Commons Math no arquivo link:pom.xml[pom.xml]) para aplicar o padrão de projeto adequado. Por fim, modifique a classe `Principal` para utilizar as classes criadas para o padrão.
 
 == Detalhes de Implementação
