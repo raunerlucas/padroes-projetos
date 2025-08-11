@@ -13,6 +13,9 @@ public class WhatsApp implements MessageService {
      */
     @Override
     public void send(final String destination, final String msg) throws MessageSendException {
+        if (destination == null || msg == null) {
+            throw new MessageSendException("WhatsApp => Destino ou mensagem não podem ser nulos");
+        }
         System.out.printf("Enviando msg WhatsApp para %s: %s%n", destination, msg);
     }
 }

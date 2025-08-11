@@ -5,4 +5,7 @@ package com.manoelcampos.message;
  * @author Manoel Campos da Silva Filho
  */
 public class MessageSendException extends RuntimeException {
+    public MessageSendException(String s) {
+        super(s);
+    }
 }
