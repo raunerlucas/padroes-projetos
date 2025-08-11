@@ -8,5 +8,6 @@ public class Email implements MessageService {
     @Override
     public void send(final String destination, final String msg) throws MessageSendException {
         //TODO: Inclua um print para simular o envio da mensagem
+        System.out.println("Enviando email para " + destination + ": " + msg);
     }
 }
