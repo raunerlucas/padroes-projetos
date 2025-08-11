@@ -11,8 +11,7 @@ public abstract class Pessoa {
     private String nome;
 
     /**
-     * Método template que define o algoritmo para cálculo de todos os impostos
-     *
+     * Metodo template que define o algoritmo para cálculo de todos os impostos
      * @return valor total de impostos a pagar
      */
     public final double calcularImpostoTotal() {
