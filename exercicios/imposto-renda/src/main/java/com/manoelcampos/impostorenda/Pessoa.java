@@ -1,25 +1,37 @@
 package com.manoelcampos.impostorenda;
 
+import lombok.Data;
+
 /**
  * @author Manoel Campos da Silva Filho
  */
+@Data
 public abstract class Pessoa {
     private long id;
     private String nome;
 
-    public long getId() {
-        return id;
+    /**
+     * Método template que define o algoritmo para cálculo de todos os impostos
+     *
+     * @return valor total de impostos a pagar
+     */
+    public final double calcularImpostoTotal() {
+        double impostoRenda = calcularImpostoRenda();
+        double outrosImpostos = calcularOutrosImpostos();
+        return impostoRenda + outrosImpostos;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    /**
+     * Calcula o Imposto de Renda específico para cada tipo de pessoa
+     *
+     * @return valor do IR a pagar
+     */
+    protected abstract double calcularImpostoRenda();
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    /**
+     * Calcula outros impostos específicos para cada tipo de pessoa
+     *
+     * @return valor de outros impostos a pagar
+     */
+    protected abstract double calcularOutrosImpostos();
 }
