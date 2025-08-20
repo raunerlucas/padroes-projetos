@@ -1,12 +1,12 @@
 package com.manoelcampos;
 
 import com.manoelcampos.message.Newsletter;
-import com.manoelcampos.message.NewsletterFactory;
+import com.manoelcampos.message.MessageFactory;
 import com.manoelcampos.people.Customer;
 
 import java.util.List;
 
-import static com.manoelcampos.message.NewsletterFactory.NewsletterType.*;
+import static com.manoelcampos.message.MessageFactory.MessageType.*;
 
 
 /**
@@ -23,15 +23,15 @@ public class Principal {
         final String msgTemplate = "Aproveite as promoções de natal #name.";
 
         System.out.println("---------- Whatsapp -----------");
-        Newsletter newsletter = NewsletterFactory.createNewsletter(WHATSAPP, customers);
+        Newsletter newsletter = new Newsletter(customers, WHATSAPP);
         newsletter.send(msgTemplate);
 
         System.out.println("---------- SMS -----------");
-        newsletter = NewsletterFactory.createNewsletter(SMS, customers);
+        newsletter = new Newsletter(customers, SMS);
         newsletter.send(msgTemplate);
 
         System.out.println("---------- EMAIL -----------");
-        newsletter = NewsletterFactory.createNewsletter(EMAIL, customers);
+        newsletter = new Newsletter(customers, EMAIL);
         newsletter.send(msgTemplate);
     }
 }

@@ -4,6 +4,8 @@ import com.manoelcampos.people.Customer;
 
 import java.util.List;
 
+import static com.manoelcampos.message.MessageFactory.*;
+
 /**
  * Envia mensagens em massa para uma lista de clientes,
  * utilizando algum {@link MessageService}.
@@ -18,9 +20,9 @@ public class Newsletter {
      * Instancia uma newsletter para envio de mensagens para uma determinada lista de clientes
      * @param customers lista de clientes para enviar mensagens
      */
-    public Newsletter(final List<Customer> customers, MessageService messageService){
+    public Newsletter(final List<Customer> customers, MessageType type){
         this.customers = customers;
-        this.messageService = messageService;
+        this.messageService = newInstance(type);
     }
 
     /**
