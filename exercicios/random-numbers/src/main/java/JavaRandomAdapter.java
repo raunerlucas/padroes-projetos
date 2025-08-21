@@ -19,10 +19,6 @@ public class JavaRandomAdapter implements RandomNumberGenerator {
 
     @Override
     public double[] nextNumbers(int size) {
-        double[] samples = new double[size];
-        for (int i = 0; i < size; i++) {
-            samples[i] = random.nextDouble();
-        }
-        return samples;
+        return random.doubles(size).toArray();
     }
 }
